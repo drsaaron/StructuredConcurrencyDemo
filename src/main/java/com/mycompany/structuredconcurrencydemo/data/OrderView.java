@@ -4,6 +4,7 @@
  */
 package com.mycompany.structuredconcurrencydemo.data;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import lombok.Data;
 
@@ -16,4 +17,10 @@ public class OrderView {
     
     private OrderData order;
     private Collection<OrderItem> orderItems;
+    
+    public BigDecimal getTotalCost() {
+        return orderItems.stream()
+                .map(i -> i.getUnitPrice().multiply(BigDecimal.valueOf(i.getQuanity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
 }
