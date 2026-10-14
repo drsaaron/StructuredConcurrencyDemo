@@ -11,7 +11,6 @@ import com.mycompany.structuredconcurrencydemo.data.dao.OrderDAO;
 import com.mycompany.structuredconcurrencydemo.data.dao.OrderItemDAO;
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.StructuredTaskScope;
 import java.util.concurrent.StructuredTaskScope.Subtask;
 import java.util.stream.Collectors;
@@ -62,7 +61,7 @@ public class StructuredConcurrentDataReadCommandLineRunner implements CommandLin
             view.setOrderItems(orderItems.get());
             
             return view;
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (Exception e) {
             Thread.currentThread().interrupt();
             throw new RuntimeException("Operation was interrupted", e);
         }

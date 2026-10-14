@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.mycompany</groupId>
     <artifactId>StructuredConcurrencyDemo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>27</maven.compiler.release>
+        <maven.compiler.release>${java.specification.version}</maven.compiler.release>
         <exec.mainClass>com.mycompany.structuredconcurrencydemo.StructuredConcurrencyDemo</exec.mainClass>
     </properties>
     
